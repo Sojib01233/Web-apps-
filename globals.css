@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f4f7f9;
+  --bg-subtle: #eef2f6;
+  --panel: #ffffff;
+  --panel-strong: #f8fafc;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
+  --accent: #0d9488;
+  --accent-dark: #0f766e;
+  --accent-soft: rgba(13, 148, 136, 0.08);
+  --ink: #0f172a;
+  --ink-secondary: #334155;
+  --muted: #64748b;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-image:
+    radial-gradient(900px 420px at 10% -5%, rgba(13, 148, 136, 0.07), transparent 60%),
+    radial-gradient(900px 420px at 90% 0%, rgba(2, 132, 199, 0.06), transparent 55%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.18);
+  color: #0f172a;
+}
+
+.mono-label {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.ts-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 3px rgba(15, 23, 42, 0.04),
+    0 8px 24px -12px rgba(15, 23, 42, 0.07);
+}
+
+.ts-panel-strong {
+  background: var(--panel-strong);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.ts-hover {
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+.ts-hover:hover {
+  border-color: rgba(13, 148, 136, 0.45);
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.06),
+    0 12px 28px -12px rgba(13, 148, 136, 0.14);
+  transform: translateY(-1px);
+}
+
+.ts-grid-lines {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.ts-input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  color: #0f172a;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+}
+.ts-input:hover {
+  border-color: #94a3b8;
+}
+.ts-input:focus {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+.ts-input::placeholder {
+  color: #94a3b8;
+}
+select.ts-input option {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.ts-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  padding: 0.6rem 1.05rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: all 150ms ease;
+  cursor: pointer;
+}
+.ts-btn-primary {
+  background: linear-gradient(135deg, #0d9488 0%, #0284c7 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
+}
+.ts-btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.35);
+  transform: translateY(-0.5px);
+}
+.ts-btn-ghost {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+.ts-btn-ghost:hover {
+  background: #f8fafc;
+  border-color: #0d9488;
+  color: #0f766e;
+}
+.ts-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ts-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.85rem;
+}
+.ts-table th {
+  text-align: left;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+  background: #f8fafc;
+  padding: 0.75rem 0.9rem;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+}
+.ts-table th:first-child {
+  border-top-left-radius: 10px;
+}
+.ts-table th:last-child {
+  border-top-right-radius: 10px;
+}
+.ts-table td {
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+  color: #334155;
+}
+.ts-table tbody tr:hover td {
+  background: #f8fafc;
+}
+
+.ts-scroll::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.ts-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 999px;
+}
+.ts-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+.ts-scroll::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Leaflet clean styling */
+.leaflet-container {
+  background: #e2e8f0 !important;
+  font-family: inherit;
+  z-index: 0;
+}
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #475569 !important;
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+  border-radius: 6px 0 0 0;
+}
+.leaflet-control-attribution a {
+  color: #0d9488 !important;
+}
+.leaflet-bar a {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+.leaflet-bar a:hover {
+  background: #f1f5f9 !important;
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+}
